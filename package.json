@@ -9,6 +9,9 @@
     "watch": "node-sass -w src/resources/scss/ -o src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "16.14.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lthdt-18clc4-18127201/shopee_fake.git"
