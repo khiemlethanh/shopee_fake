@@ -7,9 +7,14 @@ mongoose.plugin(slug);
 const Product = new Schema({
     name: { type: String, required: true },
     description: { type: String },
-    image: { type: String },
-    videoId: { type: String, required: true },
-    category: { type: String },
+    Category: { type: String },
+    status: { type: String },
+    country: { type: String },
+    // image: { type: String },
+    qty: { type: Number },
+    price: { type: String },
+    discount:{type:Number},
+    keywords: {type: String},
     slug: { type: String, slug: 'name', unique: true },
 }, {
     timestamps: true,

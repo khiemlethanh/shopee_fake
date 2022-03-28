@@ -1,0 +1,77 @@
+
+  <div id="content" class="main-content">
+            <div class="container">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h3>Products</h3>
+                        <div class="crumbs">
+                            <ul id="breadcrumbs" class="breadcrumb">
+                                <li><a href="#"><i class="flaticon-home-fill"></i></a></li>
+                                <li><a href="#">eCommerce</a></li>
+                                <li class="active"><a href="#">Products</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row margin-bottom-120">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="statbox widget box box-shadow">
+                            <div class="widget-header">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                        <h4>Product List </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-content widget-content-area">
+                                <div class="table-responsive mb-4">
+                                    <table id="ecommerce-product-list" class="table  table-bordered">
+                                        <thead>
+                                            <tr>
+                                                {{!-- <th>ID</th> --}}
+                                                {{!-- <th>Image</th> --}}
+                                                <th>Name</th> 
+                                                <th>Category</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th class="align-center">Status</th>
+                                                <th class="align-center">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each products}}
+                                            <tr>
+                                                {{!-- <td>{{this._id}}</td> --}}
+                                                {{!-- <td class="text-center">
+                                                <a class="product-list-img" href="javascript: void(0);"><img src="assets/img/60x60.jpg" alt="product"></a></td> --}}
+                                                <td>{{this.name}}</td>
+                                                <td>{{this.Category}}</td>
+                                                <td>{{this.price}}</td>
+                                                <td>{{this.qty}}</td>
+                                                <td class="text-center"> {{this.status}} </td>
+                                                <td class="align-center">
+                                                    <ul class="table-controls">
+                                                        <li>
+                                                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                                <i class="flaticon-edit"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                <i class="flaticon-delete-5"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr> 
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

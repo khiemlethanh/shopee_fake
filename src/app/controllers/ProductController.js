@@ -5,7 +5,7 @@ class ProductsController {
 
     //[GET] /news
     index(req, res) {
-        res.render('products/products',{layout:'adminMain'})
+        res.render('products/products',{layout:'main'})
     };
 
     details(req, res) {
@@ -21,9 +21,6 @@ class ProductsController {
     //         .catch(next);
     // }
 
-    create(req, res, next) {
-        res.render('products/create',{layout:'adminMain'})
-    }
 
     // store(req, res, next) {
     //     const formData = req.body;

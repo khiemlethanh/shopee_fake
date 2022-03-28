@@ -1,3 +1,5 @@
+const Product = require('../models/Product')
+
 class AdminController {
 
     //[GET] /admin
@@ -5,7 +7,28 @@ class AdminController {
         res.render('admin/admin',{layout:'adminMain'})
     };
     products(req, res, next) {
+        Product.find({})
+            .then(products => {
+                products = products.map(product => product.toObject())
+                res.render('admin/products',{products,layout:'adminMain'});
+            })
+            .catch(error =>{})
+    };
+
+    storeProducts(req, res, next){
+        const formData = req.body;
+        const product = new Product(formData);
+        product.save()
+            .then(() => res.redirect('/admin/products'))
+            .catch(error => {
+
+            })
+    }
+    productsDetails(req, res, next) {
         res.render('admin/productdetails',{layout:'adminMain'})
+    };
+    addProducts(req, res, next) {
+        res.render('admin/addProducts',{layout:'adminMain'})
     };
 }
 

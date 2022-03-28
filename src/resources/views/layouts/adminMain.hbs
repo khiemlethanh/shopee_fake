@@ -27,23 +27,86 @@
 
 <body>
 
-    <!-- Tab Mobile View Header -->
-    
-    <!-- Tab Mobile View Header -->
 
-    <!--  BEGIN NAVBAR  -->
     {{>adminHeader}}
-    <!--  END NAVBAR  -->
 
-    <!--  BEGIN MAIN CONTAINER  -->
-    
-    <!--  END CHAT  -->
-    {{{body}}}
-    <!--  BEGIN FOOTER  -->
+    <div class="main-container" id="container">
+
+        <div class="overlay"></div>
+        <div class="
+        
+        cs-overlay"></div>
+
+        <!--  BEGIN SIDEBAR  -->
+
+        <div class="sidebar-wrapper sidebar-theme">
+
+            <div id="dismiss" class="d-lg-none"><i class="flaticon-cancel-12"></i></div>
+
+            <nav id="sidebar">
+
+                <ul class="navbar-nav theme-brand flex-row d-none d-lg-flex">
+                    <li class="nav-item d-flex">
+                        <a href="index.html" class="navbar-brand">
+                            <img src="assets/img/logo-3.png" class="img-fluid" alt="logo" />
+                        </a>
+                        <p class="border-underline"></p>
+                    </li>
+                    <li class="nav-item theme-text">
+                        <a href="index.html" class="nav-link"> Shoppe-fake </a>
+                    </li>
+                </ul>
+
+                <ul class="list-unstyled menu-categories" id="accordionExample">
+                    <li class="menu">
+                        <a href="/admin"  aria-expanded="false" class="dropdown-toggle">
+                            <div class="Dashboard">
+                                <i class="flaticon-cart-2"></i>
+                                <span>Dashboard</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="menu">
+                        <a href="/admin/products"  aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="flaticon-cart-2"></i>
+                                <span>Products</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="menu">
+                        <a href="#3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="flaticon-cart-2"></i>
+                                <span>Orders</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="menu">
+                        <a href="/admin/addProducts"  aria-expanded="false"
+                            class="dropdown-toggle">
+                            <div class="">
+                                <i class="flaticon-cart-2"></i>
+                                <span>Add Products</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <!--  END SIDEBAR  -->
+
+        <!--  BEGIN CONTENT PART  -->
+        {{{body}}}
+        <!--  END CONTENT PART  -->
+
+    </div>
+
+
     {{>adminFooter}}
-    <!--  END FOOTER  -->
 
-    <!--  BEGIN CONTROL SIDEBAR  -->
     <aside class="control-sidebar control-sidebar-light-color cs-content">
         <div class="">
 
@@ -882,9 +945,8 @@
 
         </div>
     </aside>
-    <!--  END CONTROL SIDEBAR  -->
 
-    !-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="/admins/assets/js/libs/jquery-3.1.1.min.js"></script>
     <script src="/admins/plugins/jquery-ui/jquery-ui.min.js"></script>
     <script src="/admins/bootstrap/js/popper.min.js"></script>
@@ -893,7 +955,7 @@
     <script src="/admins/plugins/blockui/jquery.blockUI.min.js"></script>
     <script src="/admins/assets/js/app.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             App.init();
         });
     </script>
@@ -917,17 +979,18 @@
     <script src="/admins/plugins/table/datatable/datatables.js"></script>
     <script>
         $('#ecommerce-product-list').DataTable({
-            "lengthMenu": [ 5, 10, 20, 50, 100 ],
-            "language": { "paginate": { "previous": "<i class='flaticon-arrow-left-1'></i>", "next": "<i class='flaticon-arrow-right'></i>" },
+            "lengthMenu": [5, 10, 20, 50, 100],
+            "language": {
+                "paginate": { "previous": "<i class='flaticon-arrow-left-1'></i>", "next": "<i class='flaticon-arrow-right'></i>" },
                 "info": "Showing page _PAGE_ of _PAGES_"
             },
-            drawCallback: function( settings ) { $('[data-toggle="tooltip"]').tooltip(); }
+            drawCallback: function (settings) { $('[data-toggle="tooltip"]').tooltip(); }
         });
     </script>
     <script src="/admins/assets/js/ecommerce/autocomplete-addedit_product.js"></script>
     <script src="/admins/assets/js/ecommerce/custom-ecommerce_pro_detail1.js"></script>
 
-    <!--  END CUSTOM SCRIPT FILES  -->    
+    <!--  END CUSTOM SCRIPT FILES  -->
 </body>
 
 </html>
