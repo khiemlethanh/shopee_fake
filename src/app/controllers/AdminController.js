@@ -1,3 +1,4 @@
+const { renderSync } = require('node-sass');
 const Product = require('../models/Product')
 
 class AdminController {
@@ -12,7 +13,9 @@ class AdminController {
                 products = products.map(product => product.toObject())
                 res.render('admin/products',{products,layout:'adminMain'});
             })
-            .catch(error =>{})
+            .catch(error =>{
+                res.status(400).send({message: error.message});
+            })
     };
 
     storeProducts(req, res, next){
@@ -21,14 +24,14 @@ class AdminController {
         product.save()
             .then(() => res.redirect('/admin/products'))
             .catch(error => {
-
+                res.status(400).send({message: error.message});
             })
     }
     productsDetails(req, res, next) {
-        res.render('admin/productdetails',{layout:'adminMain'})
+        res.render('admin/productdetails', {layout:'adminMain'})
     };
     addProducts(req, res, next) {
-        res.render('admin/addProducts',{layout:'adminMain'})
+        res.render('admin/addProducts', {layout:'adminMain'})
     };
 }
 

@@ -46,6 +46,10 @@ class SiteController {
                     username: req.body.username,
                     email: req.body.email,
                     password: req.body.password,
+                    fullAddress: req.body.fullAddress,
+                    city: req.body.city,
+                    country: req.body.country,
+                    telephone: req.body.telephone,
                 })
             }
         })
@@ -55,6 +59,7 @@ class SiteController {
         .catch(err => {
             res.status(400).json('TAO TAI KHOAN THAT BAI');
         })
+        console.log(req.body);
     };
 }
 

@@ -7,7 +7,7 @@ mongoose.plugin(slug);
 const Product = new Schema({
     name: { type: String, required: true },
     description: { type: String },
-    Category: { type: String },
+    category: { type: String },
     status: { type: String },
     country: { type: String },
     // image: { type: String },

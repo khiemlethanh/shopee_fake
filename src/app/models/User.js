@@ -6,8 +6,12 @@ mongoose.plugin(slug);
 
 const User = new Schema({
     username: { type: String },
-    email: { type: String, required: true },
+    email: { type: String, required: true, unique: true, },
     password: { type: String, required: true },
+    fullAddress: { type: String, },
+    city: { type: String, },
+    country: { type: String, },
+    telephone: { type: String, },
 }, {
     timestamps: true,
 });

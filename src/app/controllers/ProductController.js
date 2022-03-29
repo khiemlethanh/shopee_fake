@@ -11,27 +11,33 @@ class ProductsController {
     details(req, res) {
         res.render('products/details',{layout:'main'})
     };
-    // details(req, res, next) {
-    //     Product.findOne({ slug: req.params.slug })
-    //         .then(product => {
-    //             res.render('products/details', {
-    //                 product: mongooseToObject(product)
-    //             });
-    //         })
-    //         .catch(next);
-    // }
+    
+    edit(req, res, next) {
+        Product.findById(req.params.id)
+            .then(product => res.render(
+                'admin/editProducts',
+                {
+                    product: mongooseToObject(product),
+                    layout: 'adminMain',
+                },
+                )
+            )
+            .catch(next);
+    }
 
+    // [PUT] /products/:id
+    update(req, res, next) {
+        Product.updateOne({ _id: req.params.id}, req.body)
+            .then(() => res.redirect('/admin/products'))
+            .catch(next);
+    }
 
-    // store(req, res, next) {
-    //     const formData = req.body;
-    //     formData.image = `https://img.youtube.com/${req.body.videoId}/sddefault.jpg`
-    //     const product = new Product(formData);
-    //     product.save()
-    //         .then(() => res.redirect('/'))
-    //         .catch(error => {
-
-    //         })
-    // }
+    // [DELETE] /products/:id
+    delete(req, res, next) {
+        Product.deleteOne({ _id: req.params.id})
+            .then(() => res.redirect('back'))
+            .catch(next);
+    }
 }
 
 module.exports = new ProductsController;
