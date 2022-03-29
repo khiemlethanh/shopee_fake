@@ -4,13 +4,6 @@
         <div class="page-header">
             <div class="page-title">
                 <h3>Products</h3>
-                <div class="crumbs">
-                    <ul id="breadcrumbs" class="breadcrumb">
-                        <li><a href="#"><i class="flaticon-home-fill"></i></a></li>
-                        <li><a href="#">eCommerce</a></li>
-                        <li class="active"><a href="#">Products</a></li>
-                    </ul>
-                </div>
             </div>
         </div>
         
@@ -45,7 +38,7 @@
                                         {{!-- <td>{{this._id}}</td> --}}
                                         {{!-- <td class="text-center">
                                         <a class="product-list-img" href="javascript: void(0);"><img src="assets/img/60x60.jpg" alt="product"></a></td> --}}
-                                        <td>{{this.name}}</td>
+                                        <td><a href="/products/details/{{this.slug}}">{{this.name}}</a></td>
                                         <td>{{this.category}}</td>
                                         <td>{{this.price}}</td>
                                         <td>{{this.qty}}</td>

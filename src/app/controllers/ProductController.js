@@ -2,15 +2,6 @@ const Product = require('../models/Product')
 const { mongooseToObject } = require('../../utils/mongoose')
 
 class ProductsController {
-
-    //[GET] /news
-    index(req, res) {
-        res.render('products/products',{layout:'main'})
-    };
-
-    details(req, res) {
-        res.render('products/details',{layout:'main'})
-    };
     
     edit(req, res, next) {
         Product.findById(req.params.id)
@@ -36,6 +27,25 @@ class ProductsController {
     delete(req, res, next) {
         Product.deleteOne({ _id: req.params.id})
             .then(() => res.redirect('back'))
+            .catch(next);
+    }
+
+    products(req, res, next) {
+        Product.find({})
+            .then(products => {
+                products = products.map(product => product.toObject())
+                res.render('products/products',{products,layout:'main'});
+            })
+            .catch(error =>{})
+    };
+    
+    details(req, res, next) {
+        Product.findOne({ slug: req.params.slug })
+            .then(product => {
+                res.render('products/details', {
+                    product: mongooseToObject(product)
+                });
+            })
             .catch(next);
     }
 }
